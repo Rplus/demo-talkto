@@ -23,12 +23,7 @@ let appPath = {
 
 gulp.task('html', () => {
   gulp.src(appPath.srcDir + '*.jade', {base: appPath.srcDir})
-    .pipe(plumber({
-      errorHandler: function (err) {
-        console.log(err);
-        this.emit('end');
-      }
-    }))
+    .pipe(plumber())
     .pipe(jade())
     .pipe(gulp.dest(appPath.distDir));
 });
