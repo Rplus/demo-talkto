@@ -32,19 +32,15 @@ gulp.task('html', () => {
 });
 
 gulp.task('css', () => {
-  gulp.src(appPath.srcDir + '**/*.css', {base: appPath.srcDir})
-    .pipe(plumber({
-      errorHandler: function (err) {
-        console.log(err);
-        this.emit('end');
-      }
-    }))
+  gulp.src(appPath.srcDir + '**/*.scss', {base: appPath.srcDir})
+    .pipe(plumber())
     .pipe(sourcemaps.init())
+    .pipe(sass())
     .pipe(postcss([
       require('postcss-assets')({
         loadPaths: ['images']
       }),
-      require('cssnext')(),
+      // require('cssnext')(),
       require('autoprefixer')(),
       require('css-mqpacker'),
       require('csswring')()
