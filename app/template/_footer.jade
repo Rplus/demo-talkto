@@ -8,7 +8,7 @@ footer.footer.text-center
       each logo, index in appInfo.teamLogo
         li.team__logo.mb3
           a(href=logo.url, title=logo.title)
-            +icon(logo.name)
+            +team-icon(logo.name)
         if index === 5
           li
 
