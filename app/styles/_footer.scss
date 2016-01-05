@@ -13,6 +13,12 @@
   }
 }
 
+.team {
+  @include bp-pad--up {
+    margin-bottom: 1.5rem;
+  }
+}
+
 .team__title {
   display: inline-block;
   padding-bottom: px2rem(3);
