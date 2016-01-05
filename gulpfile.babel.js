@@ -12,7 +12,9 @@ import svgstore from 'gulp-svgstore';
 import jade from 'gulp-jade';
 import sass from 'gulp-sass';
 import postcss from 'gulp-postcss';
+import data from 'gulp-data';
 import del from 'del';
+import fs from 'fs';
 
 let reload = browserSync.reload;
 
@@ -21,9 +23,12 @@ let appPath = {
   distDir: '_dist/'
 };
 
+let info = JSON.parse(fs.readFileSync('./app/manifest.webapp', 'utf8'));
+
 gulp.task('html', () => {
   gulp.src(appPath.srcDir + '*.jade', {base: appPath.srcDir})
     .pipe(plumber())
+    .pipe(data(info))
     .pipe(jade())
     .pipe(gulp.dest(appPath.distDir));
 });
@@ -90,7 +95,6 @@ gulp.task('team-icon', () => {
 });
 
 gulp.task('icons', ['svg-icon', 'team-icon']);
-
 
 gulp.task('build', ['hmtl', 'css', 'js', 'image'], () => {
 });
