@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="22"
+   height="22"
+   viewBox="0 0 22 22">
+  <path
+     d="M 3.666,0 C 1.642,0 0,1.642 0,3.667 L 0,18.33 C 0,20.36 1.641,22 3.666,22 l 7.334,0 0,-9.63 -2.75,0 0,-2.74 2.75,0 0,-2.07 c 0,-1.9 1.54,-3.435 3.44,-3.435 l 3.43,0 0,2.755 -3.43,0 c -0.38,0 -0.69,0.3 -0.69,0.68 l 0,2.07 3.78,0 -0.69,2.74 -3.09,0 0,9.63 4.58,0 C 20.36,22 22,20.36 22,18.33 L 22,3.667 C 22,1.642 20.36,0 18.33,0 L 3.666,0 z" />
+</svg>
