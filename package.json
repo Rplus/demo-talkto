@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.babel.js",
-  "dependencies": {},
+  "dependencies": {
+    "normalize-scss": "^4.0.3"
+  },
   "devDependencies": {
     "autoprefixer": "^6.2.3",
     "babel-preset-es2015": "^6.3.13",

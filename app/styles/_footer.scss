@@ -1,0 +1,84 @@
+.footer {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+  font-size: .95rem;
+  background-color: lighten($main-bgc, 5%);
+
+  a {
+    color: rgba($main-color, .5);
+    transition: color .2s;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+
+.team__title {
+  display: inline-block;
+  padding-bottom: px2rem(3);
+  border-bottom: 2px solid rgba($main-color, .2);
+}
+
+.team__members {
+  @include bp-pad--up {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.team__member {
+  margin-bottom: px2rem(12);
+  font-size: px2rem(18);
+  letter-spacing: 2px;
+
+  @include bp-pad--up {
+    display: inline-block;
+  }
+
+  & + .team__member::before {
+    content: '×';
+    display: block;
+    margin-bottom: px2rem(12);
+    padding-left: px2rem(6);
+    padding-right: px2rem(6);
+
+    @include bp-pad--up {
+      display: inline;
+    }
+  }
+}
+
+.team__logo {
+  font-size: 1.5rem;
+
+  @include bp-pad--up {
+    display: inline-block;
+    margin-left: px2rem(12);
+    margin-right: px2rem(12);
+    font-size: 1rem;
+  }
+
+  svg {
+    width: 4em;
+    height: 4em;
+  }
+}
+
+.footer-links {
+  @include bp-pad--up {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.footer-link {
+  margin-bottom: .75rem;
+  margin-left: .75rem;
+  margin-right: .75rem;
+
+  @include bp-pad--up {
+    display: inline-block;
+  }
+}
+.copyright {
+  font-size: .8rem;
+}

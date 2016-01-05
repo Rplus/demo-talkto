@@ -1,0 +1,17 @@
+@mixin bp-pad--down {
+  @media (max-width: #{$w-pad}) {
+    @content;
+  }
+}
+
+@mixin bp-pad--up {
+  @media (min-width: #{$w-pad + 1px}) {
+    @content;
+  }
+}
+
+@mixin bp-desktop {
+  @media (max-width: #{$w-desktop}) {
+    @content;
+  }
+}
