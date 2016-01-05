@@ -1,0 +1,23 @@
+// .container.introduce
+.introduce {
+  width: 80%;
+  max-width: 45rem;
+
+  @include bp-pad--up {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  };
+
+  @include bp-desktop--up {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  };
+
+  .block__content {
+    max-width: none;
+
+    @include bp-desktop--up {
+      font-size: 1.5rem;
+    };
+  }
+}
