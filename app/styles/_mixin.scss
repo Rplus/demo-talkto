@@ -10,8 +10,8 @@
   }
 }
 
-@mixin bp-desktop {
-  @media (max-width: #{$w-desktop}) {
+@mixin bp-desktop--up {
+  @media (min-width: #{$w-desktop + 1px}) {
     @content;
   }
 }
