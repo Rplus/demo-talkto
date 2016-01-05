@@ -116,9 +116,9 @@ gulp.task('team-icon', () => {
     .pipe(gulp.dest(appPath.distDir + 'images'));
 });
 
-gulp.task('icons', ['svg-icon', 'team-icon']);
+gulp.task('images', ['image', 'svg-icon', 'team-icon']);
 
-gulp.task('build', ['hmtl', 'css', 'js', 'image'], () => {
+gulp.task('build', ['hmtl', 'css', 'js', 'images'], () => {
 });
 
 gulp.task('deploy', () => {
