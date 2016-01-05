@@ -56,7 +56,9 @@ gulp.task('css', () => {
       }),
       // require('cssnext')(),
       require('autoprefixer')(),
-      require('css-mqpacker'),
+      require('css-mqpacker')({
+        sort: true
+      }),
       require('csswring')()
     ]))
     .pipe(gulp.dest(appPath.distDir));
