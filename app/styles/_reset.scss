@@ -1,6 +1,11 @@
 @import "../../node_modules/normalize-scss/sass/_normalize.scss";
 @include normalize();
 
+:root {
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
 body {
   background-color: $main-bgc;
   color: $main-color;
