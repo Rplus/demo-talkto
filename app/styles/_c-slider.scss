@@ -4,9 +4,13 @@
 
 .slider-head {
   position: relative;
-  top: 1em;
+  top: px2rem(18);
   z-index: 5;
   font-size: 1.5rem;
+
+  @include bp-pad--up {
+    top: 1em;
+  }
 
   @include bp-desktop--up {
     font-size: 3rem;
@@ -15,6 +19,8 @@
   }
 
   .logo {
+    max-width: 4rem;
+    height: auto;
     pointer-events: none;
   }
 }

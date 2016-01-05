@@ -1,11 +1,12 @@
 section.slider.mxa
-  h1.slider-head.px4
     img.logo.logo--index.float-right(src="/images/logo/logo.svg", alt="政問 logo", width="102", height="128")
     .share-btns.float-left
       a.share-btn.share-btn--facebook
         +svg-icon('sns-facebook')
       a.share-btn.share-btn--twitter
         +svg-icon('sns-twitter')
+  h1.slider-head
+    .container
 
   .slider-body
     each program, index in programs
