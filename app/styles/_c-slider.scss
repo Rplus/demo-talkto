@@ -89,6 +89,73 @@
   }
 }
 
+.program-info {
+  position: absolute;
+  bottom: px2rem(18);
+  right: px2rem(12);
+  line-height: px2rem(36);
+  font-weight: 900;
+
+  @include bp-pad--up {
+    bottom: px2rem(36);
+    right: px2rem(24);
+    line-height: px2rem(36);
+  }
+}
+
+.program__guest {
+  font-size: px2rem(18);
+  letter-spacing: .1em;
+
+  @include bp-pad--up {
+    font-size: px2rem(21);
+  }
+}
+.program__title {
+  font-size: px2rem(28);
+
+  @include bp-pad--up {
+    font-size: px2rem(48);
+    line-height: px2rem(60);
+  }
+}
+
+.program__time {
+  display: block;
+}
+
+.program__link {
+  display: inline-block;
+  margin-top: px2rem(6);
+  font-size: px2rem(14);
+  font-weight: 100;
+  color: inherit;
+  background-color: $c-pink;
+
+  @include bp-pad--up {
+    margin-top: px2rem(12);
+    font-size: px2rem(18);
+    line-height: px2rem(42);
+  }
+}
+
+.program__number {
+  font-size: px2rem(72);
+  line-height: 1;
+
+  .program__link + & {
+    margin-top: px2rem(-44);
+
+    @include bp-pad--up {
+      margin-top: px2rem(-64);
+    }
+  }
+
+  @include bp-pad--up {
+    font-size: px2rem(96);
+  }
+}
+
 .slider-foot {
   position: relative;
   max-width: 70rem;
@@ -176,4 +243,3 @@
     transform: rotate(.5turn);
   }
 }
-
