@@ -23,10 +23,18 @@ let appPath = {
   distDir: '_dist/'
 };
 
+let svgOptions = [
+  { removeTitle: true },
+  { removeUselessStrokeAndFill: true }
+];
+
 let info = JSON.parse(fs.readFileSync('./app/manifest.webapp', 'utf8'));
 
 gulp.task('html', () => {
-  gulp.src(appPath.srcDir + '*.jade', {base: appPath.srcDir})
+  gulp.src([
+    appPath.srcDir + '*.jade',
+    appPath.srcDir + '/talk/*.jade'
+  ], {base: appPath.srcDir})
     .pipe(plumber())
     .pipe(data(info))
     .pipe(jade())
@@ -55,19 +63,14 @@ gulp.task('js', () => {
 
 gulp.task('image', () => {
   gulp.src([
-    appPath.srcDir + 'images/**/*.*',
-    `!${appPath.srcDir}images/svg-icon/*.*`
-    ], {base: appPath.srcDir})
+    appPath.srcDir + 'images/{slider,logo}/*.*'
+  ], {base: appPath.srcDir})
     .pipe(imagemin({
+      svgoPlugins: svgOptions,
       progressive: true
     }))
     .pipe(gulp.dest(appPath.distDir));
 });
-
-let svgOptions = [
-  { removeTitle: true },
-  { removeUselessStrokeAndFill: true }
-];
 
 gulp.task('svg-icon', () => {
   gulp.src(`${appPath.srcDir}images/svg-icon/*.*`)
