@@ -1,0 +1,34 @@
+.container {
+}
+
+.block {
+}
+
+.block__title {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid;
+  font-size: px2rem(15);
+  line-height: px2rem(24);
+  color: $c-pink;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+
+  @include bp-desktop--up {
+    font-size: px2rem(18);
+  }
+
+  .title-tw {
+    color: $c-gray;
+
+    &::before {
+      content: '/';
+      padding-left: px2rem(6);
+      padding-right: px2rem(6);
+    }
+  }
+}
+
+.block__content {
+  max-width: 90%;
+}
