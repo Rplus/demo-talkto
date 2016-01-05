@@ -11,9 +11,8 @@ section.slider.mxa
   .slider-body
     each program, index in programs
       if program.program_topic
-        a.slider-content(
-          href="/talk/#{program.program_number_full}.html",
-          style="background-image: url('/images/slider/program#{program.program_number_full}_thumb.jpg')")
+        div.slider-content(style="background-image: url('/images/slider/program#{program.program_number_full}_thumb.jpg')")
+          a.slider-link(href="/talk/#{program.program_number_full}.html")
 
   .slider-foot.mxa
     ul.slider-thumbs.list-reset
