@@ -1,7 +1,6 @@
 .footer {
   padding-top: 4.5rem;
   padding-bottom: 4.5rem;
-  font-size: .95rem;
   background-color: lighten($main-bgc, 5%);
 
   a {
@@ -77,6 +76,10 @@
 
   @include bp-pad--up {
     display: inline-block;
+  }
+
+  a {
+    font-size: px2rem(15);
   }
 }
 .copyright {
