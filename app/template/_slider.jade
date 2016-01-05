@@ -1,0 +1,28 @@
+section.slider.mxa
+  h1.slider-head.px4
+    img.logo.logo--index.float-right(src="/images/logo/logo.svg", alt="政問 logo", width="102", height="128")
+    .share-btns.float-left
+      a.share-btn.share-btn--facebook
+        +svg-icon('sns-facebook')
+      a.share-btn.share-btn--twitter
+        +svg-icon('sns-twitter')
+
+  .slider-body
+    each program, index in programs
+      if program.program_topic
+        a.slider-content(
+          href="/talk/#{program.program_number_full}.html",
+          style="background-image: url('/images/slider/program#{program.program_number_full}_thumb.jpg')")
+
+  .slider-foot.mxa
+    ul.slider-thumbs.list-reset
+      each program, index in programs
+        if program.program_topic
+          li.slider-thumb(
+            title="#{program.program_number_full} - #{program.program_topic} || #{program.guest}",
+            style="background-image: url('/images/slider/program#{program.program_number_full}_thumb.jpg')")
+
+    button.slider-btn.slider-prev(aria-label="previous", role="button")
+      +svg-icon('slider-prev', 'slick-arrow')
+    button.slider-btn.slider-next(aria-label="next", role="button")
+      +svg-icon('slider-prev', 'slick-arrow')

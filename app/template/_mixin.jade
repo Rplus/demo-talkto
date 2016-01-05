@@ -1,3 +1,7 @@
 mixin team-icon(name)
   svg
     use(xlink:href="/images/team-icon.svg##{name}")
+
+mixin svg-icon(name, klass)
+  svg(class=klass)
+    use(xlink:href="/images/svg-icon.svg#icon-#{name}")
