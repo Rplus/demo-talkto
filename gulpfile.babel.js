@@ -14,6 +14,8 @@ import sass from 'gulp-sass';
 import postcss from 'gulp-postcss';
 import data from 'gulp-data';
 import del from 'del';
+import gulpSharp from 'gulp-sharp';
+import gulpFilter from 'gulp-filter';
 import fs from 'fs';
 
 let reload = browserSync.reload;
@@ -62,12 +64,25 @@ gulp.task('js', () => {
 });
 
 gulp.task('image', () => {
+  let filter = gulpFilter((file) => {
+    return /_bg\.jpg$/.test(file.path);
+  }, {restore: true});
+
   gulp.src([
     appPath.srcDir + 'images/{slider,logo}/*.*'
   ], {base: appPath.srcDir})
     .pipe(imagemin({
       svgoPlugins: svgOptions,
       progressive: true
+    }))
+    .pipe(gulp.dest(appPath.distDir))
+    .pipe(filter)
+    .pipe(gulpSharp({
+      resize: [100],
+      progressive: true
+    }))
+    .pipe(rename((path) => {
+      path.basename = path.basename.replace(/_bg/, '_thumb');
     }))
     .pipe(gulp.dest(appPath.distDir));
 });
