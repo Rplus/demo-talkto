@@ -120,7 +120,7 @@ gulp.task('server', () => {
 
 gulp.task('dev', ['server'], () => {
   gulp.watch([appPath.srcDir + '*.js'], ['js', reload]);
-  gulp.watch([appPath.srcDir + '**/*.{css, scss}'], ['css', reload]);
+  gulp.watch([appPath.srcDir + '**/*.{css,scss}'], ['css', reload]);
   gulp.watch([appPath.srcDir + '**/*.jade'], ['html', reload]);
 });
 
