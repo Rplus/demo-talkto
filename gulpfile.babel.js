@@ -14,6 +14,7 @@ import sass from 'gulp-sass';
 import postcss from 'gulp-postcss';
 import data from 'gulp-data';
 import del from 'del';
+import yaml from 'js-yaml';
 import gulpSharp from 'gulp-sharp';
 import gulpFilter from 'gulp-filter';
 import fs from 'fs';
@@ -31,6 +32,7 @@ let svgOptions = [
 ];
 
 let info = JSON.parse(fs.readFileSync('./app/manifest.webapp', 'utf8'));
+info.programs = yaml.safeLoad(fs.readFileSync(appPath.srcDir + 'talk_data.yml', 'utf8'));
 
 gulp.task('html', () => {
   gulp.src([
