@@ -82,7 +82,7 @@ gulp.task('image', () => {
     .pipe(gulp.dest(appPath.distDir))
     .pipe(filter)
     .pipe(gulpSharp({
-      resize: [100],
+      resize: [200],
       progressive: true
     }))
     .pipe(rename((path) => {
