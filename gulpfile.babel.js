@@ -54,6 +54,7 @@ gulp.task('css', () => {
       require('postcss-assets')({
         loadPaths: ['images']
       }),
+      require('lost')(),
       // require('cssnext')(),
       require('autoprefixer')(),
       require('css-mqpacker')({
