@@ -23,5 +23,9 @@
 .float-left { float: left;}
 .float-right { float: right;}
 
+.clear {
+  @include clearfix;
+}
+
 @import "u-spacing";
 @import "u-typo";
