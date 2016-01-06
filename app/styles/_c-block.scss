@@ -2,6 +2,7 @@
 }
 
 .block__title {
+  margin-bottom: 1.5rem;
   padding-top: .75rem;
   padding-bottom: .75rem;
   border-bottom: 1px solid;
@@ -27,5 +28,11 @@
 }
 
 .block__content {
-  max-width: 90%;
+  @include bp-desktop--up {
+    max-width: 90%;
+  }
+
+  p {
+    letter-spacing: .05em;
+  }
 }
