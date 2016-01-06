@@ -5,3 +5,12 @@ mixin team-icon(name)
 mixin svg-icon(name, klass)
   svg(class=klass)
     use(xlink:href="/images/svg-icon.svg#icon-#{name}")
+
+mixin sns-facebook(url)
+  a.share-btn.share-btn--facebook(href=url)
+    +svg-icon('sns-facebook')
+
+mixin sns-twitter(url)
+  a.share-btn.share-btn--twitter(href=url)
+    +svg-icon('sns-twitter')
+
