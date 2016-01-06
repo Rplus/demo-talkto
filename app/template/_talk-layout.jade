@@ -1,0 +1,49 @@
+extends ../template/_layout.jade
+
+block content
+
+  header.container
+    include ../template/_page-header.jade
+
+    block h1
+
+  block video-block
+
+  .container
+    .clear.lg-mb6
+      section.main-content.c-intro
+        .block
+          h4.block__title
+            span.title-en intro
+            span.title-tw 簡介
+          .block__content
+            block talk-intro
+
+      aside.side-content.c-bio
+        .block
+          h4.block__title
+            span.title-en bio
+            span.title-tw 來賓介紹
+          .block__content
+            block talk-bio
+
+    .clear.lg-mb6
+      section.main-content.c-point
+        .block
+          h4.block__title
+            span.title-en point of view
+            span.title-tw 節目重點整理
+          .block__content
+            block talk-point-of-view
+
+      aside.side-content.c-polis
+        .block
+          h4.block__title
+            span.title-en polis
+            span.title-tw 全民共識排行榜
+          .block__content
+            block talk-polis
+
+    ul.pagination.list-reset
+      li: a.pagination__prev(href="###") 上一集節目
+      li: a.pagination__next(href="###") 下一集節目
