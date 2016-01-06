@@ -1,0 +1,27 @@
+.point-list {
+  padding-left: 4.5rem;
+}
+
+.point-item {
+  position: relative;
+  counter-increment: point;
+
+  &::before {
+    content: counter(point, decimal-leading-zero);
+    position: absolute;
+    top: px2rem(3);
+    left: -4.5rem;
+    width: 56px;
+    text-align: right;
+    font-size: px2rem(40);
+    line-height: 1;
+    color: $c-pink;
+  }
+}
+
+.point-item__title {
+  margin-bottom: .75rem;
+  font-size: 1.5rem;
+}
+
+.point-item__desc {}
