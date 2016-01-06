@@ -1,18 +1,33 @@
+$_gutter: px2rem(18);
+
 .container {
-  // max-width: px2rem(624);
-  max-width: px2rem(1120);
-  padding-left: 18px;
-  padding-right: 18px;
+  max-width: px2rem(624);
+  padding-left: $_gutter;
+  padding-right: $_gutter;
   margin-left: auto;
   margin-right: auto;
 
   @include bp-pad--up {
+    max-width: px2rem(888);
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
 
   @include bp-desktop--up {
+    max-width: px2rem(1176);
     padding-left: 3rem;
     padding-right: 3rem;
+  }
+}
+
+.main-content {
+  @include bp-desktop--up {
+    lost-column: 7/12 0 #{$_gutter*2} no-flex;
+  }
+}
+
+.side-content {
+  @include bp-desktop--up {
+    lost-column: 5/12 0 #{$_gutter*2} no-flex;
   }
 }
