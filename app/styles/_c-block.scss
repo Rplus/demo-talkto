@@ -8,7 +8,7 @@
   padding-bottom: .75rem;
   font-size: px2rem(15);
   line-height: px2rem(24);
-  color: $c-pink;
+  color: $c-gray;
   text-transform: uppercase;
   letter-spacing: .1em;
 
@@ -16,9 +16,12 @@
     font-size: px2rem(18);
   }
 
-  .title-tw {
-    color: $c-gray;
+  .title-en {
+    font-family: $number-font;
+    color: $c-pink;
+  }
 
+  .title-tw {
     &::before {
       content: '/';
       padding-left: px2rem(6);
