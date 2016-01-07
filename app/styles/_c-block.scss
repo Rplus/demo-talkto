@@ -2,10 +2,10 @@
 }
 
 .block__title {
+  @extend .bdb1;
   margin-bottom: 1.5rem;
   padding-top: .75rem;
   padding-bottom: .75rem;
-  border-bottom: 1px solid;
   font-size: px2rem(15);
   line-height: px2rem(24);
   color: $c-pink;
