@@ -14,7 +14,7 @@
 }
 
 .team {
-  @include bp-pad--up {
+  @include bp-md--up {
     margin-bottom: 1.5rem;
   }
 }
@@ -26,7 +26,7 @@
 }
 
 .team__members {
-  @include bp-pad--up {
+  @include bp-md--up {
     margin-bottom: 1.5rem;
   }
 }
@@ -36,7 +36,7 @@
   font-size: px2rem(18);
   letter-spacing: 2px;
 
-  @include bp-pad--up {
+  @include bp-md--up {
     display: inline-block;
   }
 
@@ -47,7 +47,7 @@
     padding-left: px2rem(6);
     padding-right: px2rem(6);
 
-    @include bp-pad--up {
+    @include bp-md--up {
       display: inline;
     }
   }
@@ -56,7 +56,7 @@
 .team__logo {
   font-size: 1.5rem;
 
-  @include bp-pad--up {
+  @include bp-md--up {
     display: inline-block;
     margin-left: px2rem(12);
     margin-right: px2rem(12);
@@ -70,7 +70,7 @@
 }
 
 .footer-links {
-  @include bp-pad--up {
+  @include bp-md--up {
     margin-bottom: 1.5rem;
   }
 }
@@ -80,7 +80,7 @@
   margin-left: .75rem;
   margin-right: .75rem;
 
-  @include bp-pad--up {
+  @include bp-md--up {
     display: inline-block;
   }
 

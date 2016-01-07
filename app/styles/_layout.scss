@@ -7,7 +7,7 @@ $_gutter: px2rem(18);
   margin-left: auto;
   margin-right: auto;
 
-  @include bp-pad--up {
+  @include bp-md--up {
     max-width: px2rem(888);
     padding-left: 1.5rem;
     padding-right: 1.5rem;

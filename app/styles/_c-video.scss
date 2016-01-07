@@ -94,7 +94,7 @@
   font-weight: 900;
   color: rgba($c-white, .7);
 
-  @include bp-pad--up {
+  @include bp-md--up {
     text-align: center;
 
     > li {

@@ -3,7 +3,7 @@
   width: 80%;
   max-width: px2rem(768);
 
-  @include bp-pad--up {
+  @include bp-md--up {
     padding-top: 3rem;
     padding-bottom: 3rem;
   };
