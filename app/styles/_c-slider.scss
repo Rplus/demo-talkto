@@ -140,8 +140,7 @@
 }
 
 .program__number {
-  font-size: px2rem(72);
-  line-height: 1;
+  font: 900 px2rem(72) / 1 $number-font;
 
   .program__link + & {
     margin-top: px2rem(-44);
