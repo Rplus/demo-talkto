@@ -7,10 +7,10 @@ mixin svg-icon(name, klass)
     use(xlink:href="/images/svg-icon.svg#icon-#{name}")
 
 mixin sns-facebook(url)
-  a.share-btn.share-btn--facebook(href=url)
+  a.share-btn.share-btn--facebook(href=url, title="分享至 Facebook")
     +svg-icon('sns-facebook')
 
 mixin sns-twitter(url)
-  a.share-btn.share-btn--twitter(href=url)
+  a.share-btn.share-btn--twitter(href=url, title="分享至 Twitter")
     +svg-icon('sns-twitter')
 
