@@ -5,29 +5,46 @@ $directions: ("", "top", "left", "right", "bottom");
 $units: (0, .5rem, .75rem, 1rem, 1.5rem, 2rem, 3rem);
 $properties: ("margin", "padding");
 
-@each $property in $properties {
-  @each $unit in $units {
-    $i: index($units, $unit) - 1;
+@mixin mq-up($width) {
+  @if $width != 0 {
+    @media (min-width: #{$width + 1}) { @content }
+  } @else {
+    @content
+  }
+}
 
-    @each $dir in $directions {
-      .#{str-slice($property,1,1)}#{str-slice($dir,1,1)}#{$i} {
-        @if str_length($dir) == 0 {
-          #{$property}: $unit;
-        } @else {
-          #{$property}-#{$dir}: $unit;
+@each $bp in $grid-breakpoints {
+  @each $property in $properties {
+    @each $unit in $units {
+      $i: index($units, $unit) - 1;
+      @if (nth($bp, 2) == 0) {
+        $_bp: '';
+      } @else {
+        $_bp: nth($bp, 1) + '-';
+      }
+
+      @include mq-up(nth($bp, 2)) {
+        @each $dir in $directions {
+          .#{$_bp}#{str-slice($property,1,1)}#{str-slice($dir,1,1)}#{$i} {
+            @if str_length($dir) == 0 {
+              #{$property}: $unit;
+            } @else {
+              #{$property}-#{$dir}: $unit;
+            }
+          }
         }
-      }
-    }
 
-    @if $property == "padding" {
-      .#{str-slice($property,1,1)}y#{$i} {
-        #{$property}-top: $unit;
-        #{$property}-bottom: $unit;
-      }
+        @if $property == "padding" {
+          .#{$_bp}#{str-slice($property,1,1)}y#{$i} {
+            #{$property}-top: $unit;
+            #{$property}-bottom: $unit;
+          }
 
-      .#{str-slice($property,1,1)}x#{$i} {
-        #{$property}-left: $unit;
-        #{$property}-right: $unit;
+          .#{$_bp}#{str-slice($property,1,1)}x#{$i} {
+            #{$property}-left: $unit;
+            #{$property}-right: $unit;
+          }
+        }
       }
     }
   }

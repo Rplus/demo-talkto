@@ -15,14 +15,17 @@ $c-white-o5: rgba($c-white, .5);
 $main-bgc: $c-black-l1;
 $main-color: $c-white;
 
-// width
-$w-pad: 768px;
-$w-desktop: 1024px;
-
+// breakpoint
 $grid-breakpoints: (
   xs: 0,      // Extra small screen / phone
-  sm: 544px,  // Small screen / phone
   md: 768px,  // Medium screen / tablet
-  lg: 992px,  // Large screen / desktop
-  xl: 1200px  // Extra large screen / wide desktop
+  lg: 1024px // Large screen / desktop
 ) !default;
+
+// width
+$w-pad: map-get($grid-breakpoints, 'md');
+$w-desktop: map-get($grid-breakpoints, 'lg');
+
+$w-md: map-get($grid-breakpoints, 'md');
+$w-lg: map-get($grid-breakpoints, 'lg');
+$w-xl: 1520px;
