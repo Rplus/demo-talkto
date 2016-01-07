@@ -1,0 +1,136 @@
+.video {
+  position: relative;
+}
+
+.video--inner {
+  position: relative;
+}
+
+.video-box {
+  position: relative;
+  max-width: $w-pad;
+}
+
+.video-cover {
+  z-index: 2;
+  display: none;
+  background-size: cover;
+  background-position: 50%;
+  cursor: pointer;
+  transition: visibility 0s 1.5s, opacity 1.5s;
+
+  @include bp-lg--up {
+    display: block;
+  }
+
+  &::before {
+    content: '';
+    @include fill-full;
+    background: radial-gradient(rgba($main-bgc, 0) 0%, $main-bgc 90%);
+  }
+
+  .video-playing & {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.video-cover__icon-play {
+  $_play-size: 4.25rem;
+
+  position: absolute;
+  width: $_play-size;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80%);
+  padding-top: $_play-size * 1.2;
+  text-align: center;
+  font-weight: 900;
+  opacity: .8;
+  transition: opacity .5s;
+  pointer-events: none;
+
+  .video-cover:hover & {
+    opacity: 1;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: 100%;
+    box-shadow: inset 0 0 0 3px;
+    border-radius: 50%;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: $_play-size * .5;
+    left: 50%;
+    transform: translate(-33%, -50%);
+    border-left: 18px solid;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+  }
+}
+
+.video-placeholder {
+  padding-bottom: 100% * 9 / 16;
+  background-color: rgba(#f00, .3);
+}
+
+.video-iframe {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(#f00, .3);
+}
+
+.video-links {
+  position: relative;
+  z-index: 3;
+  transition: transform .3s;
+  font-size: px2rem(13);
+  font-weight: 900;
+  color: rgba($c-white, .7);
+
+  @include bp-pad--up {
+    text-align: center;
+
+    > li {
+      display: inline-block;
+    }
+  }
+
+  @include bp-desktop--up {
+    transform: translateY(-120px);
+  }
+
+  .video-playing & {
+    transform: translateY(0);
+  }
+
+  a {
+    display: block;
+    padding: 2px;
+    transition: all .25s;
+
+    @include bp-lg--up {
+      padding: 3px .75rem;
+    }
+
+    &:hover {
+      color: $c-white;
+      background-color: rgba($c-white, .1);
+    }
+  }
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 3px;
+    vertical-align: middle;
+  }
+}
