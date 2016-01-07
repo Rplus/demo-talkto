@@ -16,6 +16,24 @@
   }
 }
 
+@mixin bp-md--up {
+  @media (min-width: #{map-get($grid-breakpoints, md) + 1px}) {
+    @content;
+  }
+}
+
+@mixin bp-lg--up {
+  @media (min-width: #{map-get($grid-breakpoints, lg) + 1px}) {
+    @content;
+  }
+}
+
+@mixin bp-xl--up {
+  @media (min-width: #{$w-xl + 1px}) {
+    @content;
+  }
+}
+
 @mixin fill-full() {
   position: absolute;
   top: 0;
