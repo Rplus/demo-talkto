@@ -12,7 +12,7 @@
   text-transform: uppercase;
   letter-spacing: .1em;
 
-  @include bp-desktop--up {
+  @include bp-lg--up {
     font-size: px2rem(18);
   }
 
@@ -31,7 +31,7 @@
 }
 
 .block__content {
-  @include bp-desktop--up {
+  @include bp-lg--up {
     max-width: 90%;
   }
 

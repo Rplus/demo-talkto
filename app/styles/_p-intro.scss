@@ -8,7 +8,7 @@
     padding-bottom: 3rem;
   };
 
-  @include bp-desktop--up {
+  @include bp-lg--up {
     max-width: px2rem(1080);
     padding-top: 4.5rem;
     padding-bottom: 4.5rem;
@@ -17,7 +17,7 @@
   .block__content {
     max-width: none;
 
-    @include bp-desktop--up {
+    @include bp-lg--up {
       font-size: 1.5rem;
     }
 

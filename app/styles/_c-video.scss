@@ -102,7 +102,7 @@
     }
   }
 
-  @include bp-desktop--up {
+  @include bp-lg--up {
     transform: translateY(-120px);
   }
 

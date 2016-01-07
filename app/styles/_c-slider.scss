@@ -12,7 +12,7 @@
     top: 1em;
   }
 
-  @include bp-desktop--up {
+  @include bp-lg--up {
     font-size: 3rem;
     padding-right: 1em;
     padding-left: 1em;
@@ -69,7 +69,7 @@
   min-height: px2rem(440);
   max-height: 45rem;
 
-  @include bp-desktop--up {
+  @include bp-lg--up {
     min-height: px2rem(640);
   }
 }
@@ -189,7 +189,7 @@
     width: calc(100% / 5);
   }
 
-  @include bp-desktop--up {
+  @include bp-lg--up {
     font-size: px2rem(64);
     line-height: 6rem;
   }
