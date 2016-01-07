@@ -1,5 +1,108 @@
+.slogan-header {
+  text-align: justify;
+  line-height: 0;
+  font-size: 0;
+
+  @include bp-xl--up {
+    padding-top: 4.5rem;
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+.logo--talk {
+  display: block;
+
+  @include bp-pad--up {
+    width: 6rem;
+  }
+
+  @include bp-xl--up {
+    width: 8rem;
+  }
+}
+
+.logo-text--talk {
+  @include bp-pad--up {
+    width: px2rem(244 * .75);
+  }
+
+  @include bp-xl--up {
+    width: px2rem(244);
+  }
+}
+
+.talk-header {
+  position: relative;
+}
+
+.talk__num {
+  position: relative;
+  left: -2px;
+  font: 900 4rem / (9 / 8) $number-font;
+
+  @include bp-pad--up {
+    float: left;
+    font-size: 4.5rem;
+    line-height: (7 / 6);
+  }
+
+  &::first-letter {
+    color: $c-white-o5;
+  }
+}
+
+.talk__hd {
+  overflow: hidden;
+}
+
+.talk__guest {
+  font-weight: 900;
+  font-size: px2rem(18);
+  line-height: 2;
+  letter-spacing: .1em;
+}
+
+.talk__title {
+  font-size: 1.5rem;
+  line-height: 1.25;
+
+  @include bp-pad--up {
+    font-size: 2rem;
+    line-height: 1.125;
+  }
+}
+
+.share-btns--talk {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  &::before {
+    content: attr(data-share);
+    margin-right: .25em;
+    vertical-align: middle;
+  }
+
+  .share-btn {
+    margin-right: 0;
+    vertical-align: middle;
+  }
+
+  svg {
+    width: px2rem(20);
+    height: px2rem(20);
+  }
+}
+
 .point-list {
-  padding-left: 4.5rem;
+  @include bp-pad--up {
+    padding-left: 4.5rem;
+  }
 }
 
 .point-item {
@@ -8,14 +111,18 @@
 
   &::before {
     content: counter(point, decimal-leading-zero);
-    position: absolute;
-    top: px2rem(3);
-    left: -4.5rem;
-    width: 56px;
-    text-align: right;
-    font-size: px2rem(40);
-    line-height: 1;
+    display: block;
+    margin-left: px2rem(-2);
+    padding-bottom: px2rem(3);
+    font: 300 px2rem(40) / 1 $number-font;
     color: $c-pink;
+
+    @include bp-pad--up {
+      position: absolute;
+      left: -4.5rem;
+      width: 56px;
+      text-align: right;
+    }
   }
 }
 
