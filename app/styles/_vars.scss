@@ -6,9 +6,13 @@ $c-white: #fff;
 $c-black: #000;
 $c-pink: #e63082;
 $c-gray: #aaa;
+
+$c-black-l1: lighten($c-black, 5.5%);
+$c-black-l2: lighten($c-black-l1, 5%);
+$c-black-l3: lighten($c-black, 13.5%);
 $c-white-o5: rgba($c-white, .5);
 
-$main-bgc: lighten($c-black, 5.5%);
+$main-bgc: $c-black-l1;
 $main-color: $c-white;
 
 // width
