@@ -45,6 +45,10 @@ gulp.task('html', () => {
     .pipe(gulp.dest(appPath.distDir));
 });
 
+gulp.task('clean', () => {
+  del([appPath.distDir]);
+});
+
 gulp.task('css', () => {
   gulp.src(appPath.srcDir + '**/*.scss', {base: appPath.srcDir})
     .pipe(plumber())
