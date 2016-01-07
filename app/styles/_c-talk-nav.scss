@@ -61,6 +61,11 @@ $_arrow-size: .75rem;
   background-color: $c-black-l3;
   transition: transform .5s .3s, opacity .5s .1s;
   opacity: .1;
+  display: none;
+
+  @include bp-lg--up {
+    display: block;
+  }
 
   .talk-nav__link--prev & {
     left: 0;
