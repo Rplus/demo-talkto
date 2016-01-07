@@ -27,8 +27,20 @@
   @include clearfix;
 }
 
+.full-fill {
+  @include fill-full;
+}
+
 .bdb1 {
   border-bottom: 1px solid $c-pink;
+}
+
+.ib {
+  display: inline-block;
+}
+
+.space::after {
+  content: ' ';
 }
 
 @import "u-spacing";
