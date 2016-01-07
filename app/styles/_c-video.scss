@@ -115,7 +115,7 @@
     padding: 2px;
     transition: all .25s;
 
-    @include bp-lg--up {
+    @include bp-md--up {
       padding: 3px .75rem;
     }
 
