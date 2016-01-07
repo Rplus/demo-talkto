@@ -134,6 +134,7 @@ gulp.task('server', () => {
     open: 'external',
     browser: 'google-chrome',
     notify: false,
+    reloadDelay: 200,
     ghostMode: {
       clicks: false,
       scroll: false,
