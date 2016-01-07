@@ -1,0 +1,42 @@
+.pagination {
+}
+
+.pagination__item {
+  display: inline-block;
+}
+
+.pagination__link {
+  position: relative;
+  display: block;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  color: $c-gray;
+  font-weight: 900;
+  font-size: px2rem(18);
+
+  &:hover {
+    color: $c-pink;
+  }
+
+  &::after {
+    $_arrow-size: .5rem;
+    content: '';
+    position: absolute;
+    top: calc(50% - #{$_arrow-size});
+    border: $_arrow-size solid transparent;
+  }
+}
+
+.pagination__link--prev {
+  &::after {
+    right: 100%;
+    border-right-color: currentcolor;
+  }
+}
+
+.pagination__link--next {
+  &::after {
+    left: 100%;
+    border-left-color: currentcolor;
+  }
+}
