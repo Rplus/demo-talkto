@@ -24,6 +24,12 @@
     }
   },
   "appInfo": {
+    "site": {
+      "name": {
+        "en": "Talk To Taiwan",
+        "tw": "政問"
+      }
+    },
     "teamMember": ["羅申駿", "葛如鈞", "張鐵志", "馮宇", "吳逸文", "陳敏佳", "李婷婷", "楊士範"],
     "teamLogo": [
       {
