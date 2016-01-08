@@ -1,12 +1,50 @@
 extends ../template/_layout.jade
 
+block title
+  title #{_talk.title} - #{appInfo.site.name.tw} #{appInfo.site.name.en}
+
 block content
+
+  -
+    var _isFirstTalk = (_talkOrder === 0);
+    var _isLastTalk = !programs[_talkOrder + 1] || (programs[_talkOrder + 1].guest === '');
+
+    _talk.points = allPoints['point' + _talk.program_number_full + '.json'];
 
   .container--talk
     .container
       include ../template/_page-header.jade
-      block talk-header
-    block video-block
+      header.talk-header.mb4
+        .talk-title.clear
+          .talk__num.pr2.text-pink= _talk.program_number_full
+          .talk__hd
+            .talk__guest.text-pink= _talk.guest
+            h1.talk__title= _talk.title
+        .share-btns.share-btns--talk.float-right(data-share="分享")
+          +sns-facebook(_talk.url)
+          +sns-twitter(_talk.url)
+
+    section.video.mb4.lg-mb6
+      .posr
+        .talk-nav
+          if !_isLastTalk
+            +talk-nav__link('next', programs[_talkOrder + 1])
+          if !_isFirstTalk
+            +talk-nav__link('prev', programs[_talkOrder - 1])
+
+        .container.posr
+          .video-cover.full-fill(style="background-image: url('/images/slider/program#{_talk.program_number_full}_bg.jpg');")
+            .video-cover__icon-play 精華回顧
+          .video-box.mb4.md-mb2.mxa
+            .video-placeholder
+            if _talk.highlight_id
+              iframe.video-iframe.full-fill(data-y2b= _talk.highlight_id, frameborder="0", width="560", height="315")
+      .container: if _talk.video_links
+        ul.video-links.list-reset: each videoLink in _talk.video_links
+          li.video-link__item
+            a(href=videoLink.url, target="_blank").video-link
+              +svg-icon(videoLink.icon)
+              | #{videoLink.title}
 
     .container
 
@@ -17,35 +55,42 @@ block content
               span.title-en intro
               span.title-tw 簡介
             .block__content
-              block talk-intro
+              p= _talk.intro
 
         aside.side-content.c-bio
           .block
             h4.block__title
               span.title-en bio
               span.title-tw 來賓介紹
-            .block__content
-              block talk-bio
+            .block__content!= _talk.bio
 
       .clear.lg-mb6
-        section.main-content.c-point
-          .block
-            h4.block__title
-              span.title-en point of view
-              span.title-tw 節目重點整理
-            .block__content
-              block talk-point-of-view
+        if _talk.points
+          section.main-content.c-point
+            .block
+              h4.block__title
+                span.title-en point of view
+                span.title-tw 節目重點整理
+              .block__content
+                ol.point-list.list-reset
+                  each point in _talk.points
+                    li.point-item
+                      h3.point-item__title= point.title
+                      p.point-item__desc!= point.desc.replace(/\n/mg, '<br><br>')
 
-        aside.side-content.c-polis
-          .block
-            h4.block__title
-              span.title-en polis
-              span.title-tw 全民共識排行榜
-            .block__content
-              block talk-polis
+        if _talk.polis
+          aside.side-content.c-polis
+            .block
+              h4.block__title
+                span.title-en polis
+                span.title-tw 全民共識排行榜
+              .block__content
+                a(href="###") look more
 
       ul.pagination.list-reset.text-center.pb6.mb6
-        li.pagination__item
-          a.pagination__link.pagination__link--prev.px2(href="###") 上一集節目
-        li.pagination__item
-          a.pagination__link.pagination__link--next.px2(href="###") 下一集節目
+        if !_isFirstTalk
+          li.pagination__item
+            a.pagination__link.pagination__link--prev.px2(href="/talk/#{programs[_talkOrder - 1].program_number_full}.html") 上一集節目
+        if !_isLastTalk
+          li.pagination__item
+            a.pagination__link.pagination__link--next.px2(href="/talk/#{programs[_talkOrder + 1].program_number_full}.html") 下一集節目
