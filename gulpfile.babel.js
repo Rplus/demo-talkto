@@ -34,6 +34,11 @@ let svgOptions = [
 let info = JSON.parse(fs.readFileSync('./app/manifest.webapp', 'utf8'));
 info.programs = yaml.safeLoad(fs.readFileSync(appPath.srcDir + 'talk_data.yml', 'utf8'));
 
+info.allPoints = {};
+fs.readdirSync(appPath.srcDir + 'json/points/').forEach((fileName) => {
+  info.allPoints[fileName] = JSON.parse(fs.readFileSync(`${appPath.srcDir}json/points/${fileName}`, 'utf8'));
+});
+
 gulp.task('html', () => {
   gulp.src([
     appPath.srcDir + '*.jade',
