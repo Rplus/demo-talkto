@@ -35,6 +35,12 @@
     max-width: 90%;
   }
 
+  &.block__content--large {
+    @include bp-lg--up {
+      font-size: 1.5rem;
+    }
+  }
+
   p {
     letter-spacing: .05em;
   }
