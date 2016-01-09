@@ -99,6 +99,27 @@
   }
 }
 
+//
+// BIO BLOCK
+//
+
+.c-bio {
+  h3 {
+    margin-bottom: px2rem(6);
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  ul {
+    margin-top: 0;
+    padding-left: 1.5em;
+  }
+}
+
+//
+// POINT BLOCK
+//
+
 .point-list {
   @include bp-md--up {
     padding-left: 4.5rem;
