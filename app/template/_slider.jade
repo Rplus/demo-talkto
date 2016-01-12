@@ -16,8 +16,8 @@ section.slider.mxa
               .program__guest.text-pink=program.guest
               .program__title!=program.title.replace(/，/, '<br>')
               time.program__time.text-gray 12 月 23 日（三）21:00 – 21:30
-              if program.polis_result
-                a.program__link.px3(href="###", title="觀看節目彙整 →") 觀看節目彙整 →
+              if allPoints['point' + program.program_number_full + '.json']
+                a.program__link.px3(href="/talk/#{program.program_number_full}.html", title="觀看節目彙整 →") 觀看節目彙整 →
               .program__number.text-pink.text-right=program.program_number_full
 
   .slider-foot.mxa
