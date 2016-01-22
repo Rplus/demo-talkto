@@ -1,5 +1,5 @@
 // fonts
-$number-font: "Gotham SSm A", "Gotham SSm B", "source-han-sans-traditional", sans-serif;
+$number-font: "Gotham SSm A", "Gotham SSm B", "Montserrat", "source-han-sans-traditional", sans-serif;
 
 // colors:
 $c-white: #fff;
@@ -13,7 +13,7 @@ $c-black-l3: lighten($c-black, 13.5%);
 $c-white-o5: rgba($c-white, .5);
 
 $main-bgc: $c-black-l1;
-$main-color: $c-white;
+$main-color: $c-white;1
 
 // breakpoint
 $grid-breakpoints: (
