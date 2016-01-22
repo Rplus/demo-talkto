@@ -31,6 +31,14 @@
   @include fill-full;
 }
 
+.vh {
+  visibility: hidden;
+}
+
+.vv {
+  visibility: visible;
+}
+
 .bdb1 {
   border-bottom: 1px solid $c-pink;
 }
