@@ -1,9 +1,17 @@
 .slider {
   max-width: 95rem;
+
+  .container {
+    position: relative;
+    height: 100%;
+  }
 }
 
 .slider-head {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   top: px2rem(18);
   z-index: 5;
   font-size: 1.5rem;
@@ -68,6 +76,14 @@
   height: 90vh;
   min-height: px2rem(440);
   max-height: 45rem;
+  outline: none;
+
+  opacity: 0;
+  transition: opacity .3s;
+
+  &.slick-initialized {
+    opacity: 1;
+  }
 
   @include bp-lg--up {
     min-height: px2rem(640);
@@ -78,14 +94,16 @@
   @include fill-full;
   background-position: 50%;
   background-size: cover;
-}
+  outline: none;
 
-.slider-link {
-  @include fill-full;
-  background-image: linear-gradient(to bottom, transparent, rgba($main-bgc, .1), $main-bgc);
+  &::before {
+    content: '';
+    @include fill-full;
+    background-image: linear-gradient(to bottom, transparent, rgba($main-bgc, .1), $main-bgc);
 
-  @include bp-md--up {
-    background: rgba($main-bgc, .25);
+    @include bp-md--up {
+      background: rgba($main-bgc, .25);
+    }
   }
 }
 
@@ -241,4 +259,9 @@
   .slider-next & {
     transform: rotate(.5turn);
   }
+}
+
+.slick-track,
+.slick-list {
+  height: 100%;
 }
