@@ -160,6 +160,10 @@
 .program__number {
   font: 900 px2rem(72) / 1 $number-font;
 
+  &::first-letter {
+    color: $c-white-o5;
+  }
+
   .program__link + & {
     margin-top: px2rem(-44);
 
