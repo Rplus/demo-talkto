@@ -3,6 +3,10 @@
 'use strict';
 
 $(function () {
+  var slider = $('.slider');
+
+  if (slider.length) {
+  $.ajaxSetup({ cache: true });
   $.getScript('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js', function (data, textStatus) {
     var sliderMain = $('.slider-body');
     var sliderThumb = $('.slider-thumbs');
@@ -37,4 +41,8 @@ $(function () {
       ]
     });
   });
+  $.ajaxSetup({ cache: false });
+
+  }
+
 });
