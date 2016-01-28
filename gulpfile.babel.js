@@ -44,7 +44,12 @@ gulp.task('html', () => {
     appPath.srcDir + '*.jade',
     appPath.srcDir + '/talk/*.jade'
   ], {base: appPath.srcDir})
-    .pipe(plumber())
+    .pipe(plumber({
+      errorError: (err) => {
+        console.log(err);
+        this.emit('end');
+      }
+    }))
     .pipe(data(info))
     .pipe(jade())
     .pipe(gulp.dest(appPath.distDir));
