@@ -5,6 +5,10 @@
     position: relative;
     height: 100%;
   }
+
+  * {
+    outline: none;
+  }
 }
 
 .slider-head {
@@ -184,9 +188,34 @@
 }
 
 .slider-thumbs {
-  margin: px2rem(6) px2rem(70);
   overflow: hidden;
   white-space: nowrap;
+  transition: opacity .3s;
+  opacity: 0;
+
+  &.slick-initialized {
+    opacity: 1;
+  }
+
+  .slick-list {
+    margin: px2rem(6) px2rem(70);
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 1;
+      width: 8%;
+      background-color: #f00;
+      background: linear-gradient( 90deg, $main-bgc, transparent) no-repeat;
+      pointer-events: none;
+    }
+
+    &::before {left: 0; }
+    &::after {right: 0; transform: rotateZ(.5turn);}
+  }
 }
 
 .slider-thumb {
@@ -205,7 +234,7 @@
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
-  counter-increment: program;
+  cursor: pointer;
 
   @include bp-md--up {
     width: calc(100% / 5);
@@ -216,13 +245,13 @@
     line-height: 6rem;
   }
 
-  &.is-active,
+  &.slick-current,
   &:hover {
     opacity: 1;
   }
 
   &::before {
-    content: counter(program, decimal-leading-zero);
+    content: attr(data-order);
     pointer-events: none;
   }
 
@@ -248,14 +277,16 @@
 
   &.slider-prev {
     left: 0;
+    cursor: w-resize;
   }
 
   &.slider-next {
     right: 0;
+    cursor: e-resize;
   }
 }
 
-.slick-arrow {
+.slick-arrow-icon {
   width: 14px;
   height: 25px;
   fill: currentcolor;

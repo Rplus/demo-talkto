@@ -22,14 +22,16 @@ section.slider.mxa
               .program__number.text-pink.text-right=program.program_number_full
 
   .slider-foot.mxa
-    ul.slider-thumbs.list-reset
+    .slider-thumbs.list-reset
       each program, index in programs
         if program.program_topic
-          li.slider-thumb(
+          .slider-thumb(
+            data-order=program.program_number_full,
             title="#{program.program_number_full} - #{program.program_topic} || #{program.guest}",
             style="background-image: url('/images/slider/program#{program.program_number_full}_thumb.jpg')")
 
+  script#slider-btn-tmpl(type="text/tmpl")
     button.slider-btn.slider-prev(aria-label="previous", role="button")
-      +svg-icon('slider-prev', 'slick-arrow')
+      +svg-icon('slider-prev', 'slick-arrow-icon')
     button.slider-btn.slider-next(aria-label="next", role="button")
-      +svg-icon('slider-prev', 'slick-arrow')
+      +svg-icon('slider-prev', 'slick-arrow-icon')
