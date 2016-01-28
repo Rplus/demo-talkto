@@ -30,7 +30,8 @@
     "gulp-uglify": "^1.5.1",
     "js-yaml": "^3.4.6",
     "lost": "^6.6.3",
-    "postcss-assets": "^3.0.3"
+    "postcss-assets": "^3.0.3",
+    "slick-carousel": "^1.5.9"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
