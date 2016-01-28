@@ -19,7 +19,7 @@ block content
           .talk__num.pr2.text-pink= _talk.program_number_full
           .talk__hd
             .talk__guest.text-pink= _talk.guest
-            h1.talk__title= _talk.title
+            h1.talk__title!= _talk.title
         .share-btns.share-btns--talk.float-right(data-share="分享")
           +sns-facebook(_talk.url)
           +sns-twitter(_talk.url)
