@@ -74,7 +74,15 @@ gulp.task('css', () => {
     .pipe(gulp.dest(appPath.distDir));
 });
 
+gulp.task('clean:js', () => {
+  del([appPath.distDir + 'scripts/*']);
+});
+
 gulp.task('js', () => {
+  gulp.src(appPath.srcDir + 'scripts/**/*.js')
+    .pipe(plumber())
+    .pipe(uglify())
+    .pipe(gulp.dest(appPath.distDir + 'scripts/'));
 });
 
 gulp.task('image', () => {
@@ -151,7 +159,7 @@ gulp.task('server', () => {
 });
 
 gulp.task('dev', ['server'], () => {
-  gulp.watch([appPath.srcDir + '*.js'], ['js', reload]);
+  gulp.watch([appPath.srcDir + '**/*.js'], ['js', reload]);
   gulp.watch([appPath.srcDir + '**/*.scss'], ['css', reload]);
   gulp.watch([appPath.srcDir + '**/*.jade'], ['html', reload]);
 });
