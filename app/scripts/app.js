@@ -8,6 +8,13 @@ $(function () {
   if (slider.length) {
     var sliderMain = slider.find('.slider-body');
     var sliderContent = sliderMain.find('.slider-content');
+
+    var updateBgi = function (_elm) {
+      var bgi = _elm.css('background-image');
+      bgi = bgi.replace('thumb', 'bg') + ', ' + bgi;
+      _elm.css('background-image', bgi);
+    };
+
     $.ajaxSetup({ cache: true });
     $.getScript('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js', function (data, textStatus) {
       var sliderThumb = slider.find('.slider-thumbs');
@@ -15,12 +22,18 @@ $(function () {
       var sliderBtnTmpl = $('<div />').html($('#slider-btn-tmpl').html()).find('button');
       var sliderInitOrder = sliderLen - 1;
 
+      updateBgi(sliderContent.eq(sliderInitOrder));
+
       sliderMain.slick({
         arrows: false,
         asNavFor: sliderThumb,
         fade: true,
         initialSlide: sliderInitOrder,
         slidesToShow: 1
+      });
+
+      sliderMain.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+        updateBgi(sliderContent.eq(nextSlide));
       });
 
       sliderThumb.slick({
