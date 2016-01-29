@@ -6,11 +6,12 @@ $(function () {
   var slider = $('.slider');
 
   if (slider.length) {
+    var sliderMain = slider.find('.slider-body');
+    var sliderContent = sliderMain.find('.slider-content');
     $.ajaxSetup({ cache: true });
     $.getScript('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js', function (data, textStatus) {
-      var sliderMain = $('.slider-body');
-      var sliderThumb = $('.slider-thumbs');
-      var sliderLen = sliderMain.find('.slider-content').length;
+      var sliderThumb = slider.find('.slider-thumbs');
+      var sliderLen = sliderContent.length;
       var sliderBtnTmpl = $('<div />').html($('#slider-btn-tmpl').html()).find('button');
 
       sliderMain.slick({
