@@ -13,12 +13,13 @@ $(function () {
       var sliderThumb = slider.find('.slider-thumbs');
       var sliderLen = sliderContent.length;
       var sliderBtnTmpl = $('<div />').html($('#slider-btn-tmpl').html()).find('button');
+      var sliderInitOrder = sliderLen - 1;
 
       sliderMain.slick({
         arrows: false,
         asNavFor: sliderThumb,
         fade: true,
-        initialSlide: sliderLen - 1,
+        initialSlide: sliderInitOrder,
         slidesToShow: 1
       });
 
@@ -27,7 +28,7 @@ $(function () {
         centerMode: true,
         centerPadding: 0,
         focusOnSelect: true,
-        initialSlide: sliderLen - 1,
+        initialSlide: sliderInitOrder,
         slidesToShow: 5,
         useTransform: true,
         prevArrow: sliderBtnTmpl[0].outerHTML,
