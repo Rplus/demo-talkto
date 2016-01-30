@@ -26,18 +26,24 @@
 }
 
 .video-cover__icon-play {
-  $_play-size: 4.25rem;
+  $_play-size: 4.25em;
 
   position: absolute;
   width: $_play-size;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -80%);
+  transform: translate(-50%, -50%);
   padding-top: $_play-size * 1.2;
   text-align: center;
   font-weight: 900;
   opacity: .8;
   transition: opacity .5s;
+  font-size: px2rem(12);
+
+  @include bp-lg--up {
+    transform: translate(-50%, -80%);
+    font-size: 1rem;
+  }
 
   .video-cover:hover & {
     opacity: 1;
