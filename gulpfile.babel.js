@@ -71,6 +71,7 @@ gulp.task('css', () => {
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(postcss([
+      require('postcss-devtools')(),
       require('postcss-assets')({
         loadPaths: ['images']
       }),
