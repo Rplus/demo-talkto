@@ -70,4 +70,31 @@ $(function () {
     });
   }
 
+  // polis step show
+  var polis = {
+    items: $('.polis')
+  };
+
+  if (polis.items.length) {
+    polis.more = $('.polis-more');
+    polis.step = polis.more.data('slice');
+
+    polis.loadmore = function () {
+      var _top10 = polis.items.slice(0, polis.step);
+      polis.items = polis.items.slice(polis.step);
+      _top10.addClass('is-show');
+    };
+
+    polis.more.on('click.loadmore', function (event) {
+      event.preventDefault();
+      polis.loadmore();
+
+      // remove click event & loadmore
+      if (!polis.items.length) {
+        polis.more.off('click.loadmore').hide();
+      }
+    });
+
+    polis.more.click();
+  }
 });
