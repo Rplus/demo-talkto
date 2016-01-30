@@ -129,9 +129,11 @@ $(function () {
 
   if (video.elm.length) {
     var player;
+    video.iframe = video.elm.find('.video-iframe');
+
+    if (!video.iframe.length) { return; }
 
     video.elm.find('.video-cover').on('click.loadvideo', function () {
-      video.iframe = video.elm.find('.video-iframe');
       var _vid = video.iframe.data('vid');
       var _config = {
         enablejsapi: 1,
