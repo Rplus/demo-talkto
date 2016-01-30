@@ -48,6 +48,15 @@
     </ul>
   url: "http://talkto.tw/talk/02"
   ogimage_url: "http://talkto.tw/ogimage-02.png"
+  video_links:
+    - title: '完整重播'
+      icon: 'complete'
+      url: 'https://www.youtube.com/watch?v=rU9RkJak71c'
+
+    - title: '統計資料'
+      icon: 'polis-data'
+      url: 'https://github.com/audreyt/polis-tally/blob/gh-pages/talkto02-12-04-tally.csv'
+
 -
   program_number: "3"
   program_number_full: "03"
@@ -70,6 +79,15 @@
     </ul>
   url: "http://talkto.tw/talk/03"
   ogimage_url: "http://talkto.tw/ogimage-03.jpg"
+  video_links:
+    - title: '完整重播'
+      icon: 'complete'
+      url: 'https://www.youtube.com/watch?v=8W1vtm-s0XU'
+
+    - title: '統計資料'
+      icon: 'polis-data'
+      url: 'https://github.com/audreyt/polis-tally/blob/gh-pages/talkto03-12-11-tally.csv'
+
 -
   program_number: "4"
   program_number_full: "04"
@@ -92,6 +110,14 @@
     </p>
   url: "http://talkto.tw/talk/04"
   ogimage_url: "http://talkto.tw/ogimage-04.jpg"
+  video_links:
+    - title: '完整重播'
+      icon: 'complete'
+      url: 'https://www.youtube.com/watch?v=mRDm4-Cvt4E'
+
+    - title: '統計資料'
+      icon: 'polis-data'
+      url: 'https://github.com/audreyt/polis-tally/blob/gh-pages/talkto04-12-16-tally.csv'
 -
   program_number: "5"
   program_number_full: "05"
@@ -115,6 +141,14 @@
     </ul>
   url: "http://talkto.tw/talk/05"
   ogimage_url: "http://talkto.tw/ogimage-05.jpg"
+  video_links:
+    - title: '完整重播'
+      icon: 'complete'
+      url: 'https://www.youtube.com/watch?v=-t_KPxKcvcE'
+
+    - title: '統計資料'
+      icon: 'polis-data'
+      url: 'https://github.com/audreyt/polis-tally/blob/gh-pages/talkto05-12-28-tally.csv'
 -
   program_number: "6"
   program_number_full: "06"
@@ -146,6 +180,14 @@
     </ul>
   url: "http://talkto.tw/talk/06"
   ogimage_url: "http://talkto.tw/ogimage-06.jpg"
+  video_links:
+    - title: '完整重播'
+      icon: 'complete'
+      url: 'https://www.youtube.com/watch?v=7LcupH2i65g'
+
+    - title: '統計資料'
+      icon: 'polis-data'
+      url: 'https://github.com/audreyt/polis-tally/blob/gh-pages/talkto06-12-31-tally.csv'
 -
   program_number: "7"
   program_number_full: "07"
