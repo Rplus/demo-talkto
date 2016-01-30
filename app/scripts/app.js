@@ -130,13 +130,23 @@ $(function () {
   if (video.elm.length) {
     var player;
 
-    video.iframe = video.elm.find('.video-iframe');
-    video.iframe.attr('src', video.iframe.data('src'));
+    video.elm.find('.video-cover').on('click.loadvideo', function () {
+      video.iframe = video.elm.find('.video-iframe');
+      var _vid = video.iframe.data('vid');
+      var _config = {
+        enablejsapi: 1,
+        html5: 1,
+        showinfo: 0,
+        autoplay: 1
+      };
+      var _url = 'https://www.youtube.com/embed/' + _vid + '?' + $.param(_config);
+      video.iframe.attr('src', _url);
+      video.elm.addClass('video-playing');
+    });
 
     video.onPlayerReady = function (event) {
       $('.video-cover__icon-play').on('click.playvideo', function (event) {
         player.playVideo();
-        video.elm.addClass('video-playing');
       });
     };
 

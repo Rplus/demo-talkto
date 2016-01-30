@@ -8,15 +8,10 @@
 
 .video-cover {
   z-index: 2;
-  display: none;
   background-size: cover;
   background-position: 50%;
   cursor: pointer;
   transition: visibility 0s 1.5s, opacity 1.5s;
-
-  @include bp-lg--up {
-    display: block;
-  }
 
   &::before {
     content: '';

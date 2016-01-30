@@ -41,7 +41,7 @@ block content
           .video-box.mb4.md-mb2.mxa
             .video-placeholder
             if _talk.highlight_id
-              iframe#video.video-iframe.full-fill(data-src="https://www.youtube.com/embed/#{_talk.highlight_id}?enablejsapi=1&html5=1&showinfo=0", frameborder="0", width="560", height="315")
+              iframe#video.video-iframe.full-fill(data-vid="#{_talk.highlight_id}", frameborder="0", width="560", height="315")
       .container: if _talk.video_links
         ul.video-links.list-reset: each videoLink in _talk.video_links
           li.video-link__item
