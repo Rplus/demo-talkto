@@ -107,7 +107,7 @@ block content
       ul.pagination.list-reset.text-center.pb6.mb6
         if !_isFirstTalk
           li.pagination__item
-            a.pagination__link.pagination__link--prev.px2(href="/talk/#{programs[_talkOrder - 1].program_number_full}.html") 上一集節目
+            a.pagination__link.pagination__link--prev.px2(href="talk/#{programs[_talkOrder - 1].program_number_full}.html") 上一集節目
         if !_isLastTalk
           li.pagination__item
-            a.pagination__link.pagination__link--next.px2(href="/talk/#{programs[_talkOrder + 1].program_number_full}.html") 下一集節目
+            a.pagination__link.pagination__link--next.px2(href="talk/#{programs[_talkOrder + 1].program_number_full}.html") 下一集節目
