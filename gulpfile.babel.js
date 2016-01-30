@@ -18,6 +18,7 @@ import yaml from 'js-yaml';
 import gulpSharp from 'gulp-sharp';
 import gulpFilter from 'gulp-filter';
 import fs from 'fs';
+import ghPages from 'gulp-gh-pages';
 
 let reload = browserSync.reload;
 
@@ -150,6 +151,8 @@ gulp.task('build', ['hmtl', 'css', 'js', 'images'], () => {
 });
 
 gulp.task('deploy', () => {
+  return gulp.src(appPath.distDir + '**/*')
+    .pipe(ghPages());
 });
 
 gulp.task('server', () => {
