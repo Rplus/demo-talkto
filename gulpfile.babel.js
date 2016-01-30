@@ -167,7 +167,8 @@ gulp.task('server', () => {
       forms: false
     },
     scrollThrottle: 500,
-    server: appPath.distDir
+    startPath: appPath.distDir,
+    server: ''
   });
 });
 
