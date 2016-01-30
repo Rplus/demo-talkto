@@ -100,4 +100,9 @@
   color: $c-pink;
   font-size: px2rem(15);
   font-weight: 900;
+  transition: background-color .5s;
+
+  &:hover {
+    background-color: $c-black-l3;
+  }
 }
