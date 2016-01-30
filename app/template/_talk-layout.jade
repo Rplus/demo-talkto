@@ -8,8 +8,11 @@ block content
   -
     var _isFirstTalk = (_talkOrder === 0);
     var _isLastTalk = !programs[_talkOrder + 1] || (programs[_talkOrder + 1].guest === '');
+    var polisCircleSize = 45;
+    var polisCircleLen = polisCircleSize * 2 * Math.PI;
 
     _talk.points = allPoints['point' + _talk.program_number_full + '.json'];
+    _talk.polis = allPolis['polis' + _talk.program_number_full + '.json'];
 
   .container--talk
     .container
@@ -85,7 +88,20 @@ block content
                 span.title-en polis
                 span.title-tw 全民共識排行榜
               .block__content
-                a(href="###") look more
+                ul.polis-result.list-reset
+                  each polis in _talk.polis
+                    - var _polisPercLen = ~~(polisCircleLen * polis.percentage / 100);
+                    li.polis.media.p2.md-p4.text-center
+                      .polis__chart(data-perc=~~polis.percentage)
+                        svg.polis__chart__svg
+                          circle.base(cx="50", cy="50", r=polisCircleSize,
+                            stroke-dasharray="#{polisCircleLen} #{polisCircleLen}",
+                            stroke-dashoffset=polisCircleLen)
+                          circle.data(cx="50", cy="50", r=polisCircleSize,
+                            stroke-dasharray="#{_polisPercLen} #{polisCircleLen}",
+                            stroke-dashoffset="#{_polisPercLen}")
+                      p.polis__content.mb0.text-left= polis.comment_body
+                a.polis-more.text-center.py1(href="###", data-slice="10") ▼ 看更多
 
       ul.pagination.list-reset.text-center.pb6.mb6
         if !_isFirstTalk
