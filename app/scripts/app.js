@@ -1,4 +1,4 @@
-/*global $ */
+/*global $, YT */
 
 'use strict';
 
@@ -96,5 +96,40 @@ $(function () {
     });
 
     polis.more.click();
+  }
+
+  // video
+  var video = {
+    elm: $('.video')
+  };
+
+  if (video.elm.length) {
+    var player;
+
+    video.onPlayerReady = function (event) {
+      $('.video-cover__icon-play').on('click.playvideo', function (event) {
+        player.playVideo();
+        video.elm.addClass('video-playing');
+      });
+    };
+
+    video.onPlayerStateChange = function (event) {
+      if (event.data === 1) {
+        video.elm.addClass('video-playing');
+      }
+    };
+
+    $.ajaxSetup({ cache: true });
+    $.getScript('//www.youtube.com/player_api', function (data, textStatus) {
+      window.onYouTubePlayerAPIReady = function () {
+        player = new YT.Player('video', {
+          events: {
+            'onReady': video.onPlayerReady,
+            'onStateChange': video.onPlayerStateChange
+          }
+        });
+      };
+    });
+    $.ajaxSetup({ cache: false });
   }
 });
