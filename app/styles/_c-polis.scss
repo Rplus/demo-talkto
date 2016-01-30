@@ -56,10 +56,14 @@
   .data {
     stroke-width: 3px;
     fill: transparent;
-    animation: sss 1.5s forwards paused;
+    animation: svg-dash-anim 1.5s forwards paused;
 
     .polis.is-show & {
       animation-play-state: running;
+    }
+
+    @keyframes svg-dash-anim {
+      to { stroke-dashoffset: 0; }
     }
   }
 
@@ -79,10 +83,6 @@
 
   .data {
     stroke: $c-pink;
-  }
-
-  @keyframes sss {
-    to { stroke-dashoffset: 0; }
   }
 }
 
