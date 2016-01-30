@@ -76,6 +76,30 @@ $(function () {
   };
 
   if (polis.items.length) {
+    // detect animation support
+    (function () {
+      var domPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+      var elm = document.createElement('div');
+
+      if (elm.style.animationName !== undefined) {
+        polis.isSupportAnimation = true;
+        return;
+      }
+
+      if (!polis.isSupportAnimation) {
+        for (var i = 0; i < domPrefixes.length; i++) {
+          if (elm.style[ domPrefixes[i] + 'AnimationName' ] !== undefined) {
+            polis.isSupportAnimation = true;
+            break;
+          }
+        }
+      }
+    })();
+
+    if (!polis.isSupportAnimation) {
+      $(document.documentElement).addClass('no-animation');
+    }
+
     polis.more = $('.polis-more');
     polis.step = polis.more.data('slice');
 

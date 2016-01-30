@@ -58,6 +58,10 @@
     fill: transparent;
     animation: svg-dash-anim 1.5s forwards paused;
 
+    .no-animation & {
+      stroke-dashoffset: 0;
+    }
+
     .polis.is-show & {
       animation-play-state: running;
     }
