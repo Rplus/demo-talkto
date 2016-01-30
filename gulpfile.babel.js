@@ -39,6 +39,11 @@ fs.readdirSync(appPath.srcDir + 'json/points/').forEach((fileName) => {
   info.allPoints[fileName] = JSON.parse(fs.readFileSync(`${appPath.srcDir}json/points/${fileName}`, 'utf8'));
 });
 
+info.allPolis = {};
+fs.readdirSync(appPath.srcDir + 'json/polis/').forEach((fileName) => {
+  info.allPolis[fileName] = JSON.parse(fs.readFileSync(`${appPath.srcDir}json/polis/${fileName}`, 'utf8'));
+});
+
 gulp.task('html', () => {
   gulp.src([
     appPath.srcDir + '*.jade',
