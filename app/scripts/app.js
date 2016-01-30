@@ -58,4 +58,16 @@ $(function () {
     });
     $.ajaxSetup({ cache: false });
   }
+
+  // simple macho effect for CJK text wrapping
+  var titles = $('.title, .talk__title, .point-item__title');
+  if (titles.length) {
+    $.each(titles, function (index, val) {
+      var txt = val.textContent;
+      if (txt.length > 3) {
+        val.innerHTML = txt.slice(0, -3) + '<span class="ib">' + txt.slice(-3) + '</span>';
+      }
+    });
+  }
+
 });
