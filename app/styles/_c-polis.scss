@@ -4,3 +4,88 @@
     border-bottom: none;
   }
 }
+
+.polis {
+  display: table;
+  display: none;
+  width: 100%;
+  margin-bottom: px2rem(6);
+  background-color: mix(#fff, #000, 20);
+  font-size: px2rem(13);
+  line-height: px2rem(24);
+  opacity: 0;
+  transition: opacity 1s;
+
+  &.is-show {
+    opacity: 1;
+  }
+}
+
+.polis__chart {
+  position: relative;
+  display: inline-block;
+  color: $c-pink;
+
+  @include bp-md--up {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  &::after {
+    content: attr(data-perc) '%';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: $number-font;
+    font-weight: 900;
+    font-size: 1.5rem;
+  }
+}
+
+.polis__chart__svg {
+  display: block;
+  width: 100px;
+  height: 100px;
+  transform: rotate(-.25turn);
+
+  .base,
+  .data {
+    stroke-width: 3px;
+    fill: transparent;
+    animation: sss 1.5s linear forwards paused;
+
+    .polis.is-visible & {
+      animation-play-state: running;
+    }
+  }
+
+  .base {
+    stroke: $c-gray;
+    animation-delay: 1.5s;
+  }
+
+  .data {
+    stroke: $c-pink;
+  }
+
+  @keyframes sss {
+    to { stroke-dashoffset: 0; }
+  }
+}
+
+.polis__content {
+  @include bp-md--up {
+    display: table-cell;
+    width: 100em;
+    vertical-align: middle;
+    padding-left: 1.5rem;
+  }
+}
+
+.polis-more {
+  display: block;
+  color: $c-pink;
+  font-size: px2rem(15);
+  font-weight: 900;
+}
