@@ -7,11 +7,11 @@ mixin svg-icon(name, klass)
     use(xlink:href="images/svg-icon.svg#icon-#{name}")
 
 mixin sns-facebook(url)
-  a.share-btn.share-btn--facebook(href=url, title="分享至 Facebook")
+  a.share-btn.share-btn--facebook(href="https://www.facebook.com/sharer/sharer.php?u=#{url}", title="分享至 Facebook")
     +svg-icon('sns-facebook')
 
 mixin sns-twitter(url)
-  a.share-btn.share-btn--twitter(href=url, title="分享至 Twitter")
+  a.share-btn.share-btn--twitter(href="https://twitter.com/intent/tweet?button_hashtag=talktotw&text=《政問 - Talk to Taiwan》是新型態政論節目，嚴選台灣未來十年的重要議題，真誠請教，給台灣下一任總統、政治人物充足的施政方針；真誠實錄，為台灣書寫下一個十年的政策備忘錄。&url=#{url}&via=talktotw", title="分享至 Twitter")
     +svg-icon('sns-twitter')
 
 mixin talk-nav__link($type, $programData)
