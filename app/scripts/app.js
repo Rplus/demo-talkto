@@ -106,6 +106,9 @@ $(function () {
   if (video.elm.length) {
     var player;
 
+    video.iframe = video.elm.find('.video-iframe');
+    video.iframe.attr('src', video.iframe.data('src'));
+
     video.onPlayerReady = function (event) {
       $('.video-cover__icon-play').on('click.playvideo', function (event) {
         player.playVideo();
