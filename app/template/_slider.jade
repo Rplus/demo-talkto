@@ -4,7 +4,7 @@
 section.slider.mxa
   h1.slider-head.vh
     .container.vv
-      img.logo.logo--index.float-right(src="/images/logo/logo.svg", alt="政問 logo", width="102", height="128")
+      img.logo.logo--index.float-right(src="images/logo/logo.svg", alt="政問 logo", width="102", height="128")
       .share-btns.float-left
         +sns-facebook('###')
         +sns-twitter('###')
@@ -12,11 +12,11 @@ section.slider.mxa
   .slider-body
     each program, index in programs
       if program.program_topic
-        - var bgi = `url('/images/slider/program${program.program_number_full}_thumb.jpg')`;
+        - var bgi = `url('images/slider/program${program.program_number_full}_thumb.jpg')`;
         - var bgp = program.bg_position && `background-position: ${program.bg_position};`;
 
         a.slider-content(
-          href="/talk/#{program.program_number_full}.html",
+          href="talk/#{program.program_number_full}.html",
           style="background-image: #{bgi}; #{bgp}")
           .container
             .program-info
@@ -34,7 +34,7 @@ section.slider.mxa
           .slider-thumb(
             data-order=program.program_number_full,
             title="#{program.program_number_full} - #{program.program_topic} || #{program.guest}",
-            style="background-image: url('/images/slider/program#{program.program_number_full}_thumb.jpg')")
+            style="background-image: url('images/slider/program#{program.program_number_full}_thumb.jpg')")
 
   script#slider-btn-tmpl(type="text/tmpl")
     button.slider-btn.slider-prev(aria-label="previous", role="button")

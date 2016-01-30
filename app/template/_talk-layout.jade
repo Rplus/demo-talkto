@@ -1,6 +1,7 @@
 extends ../template/_layout.jade
 
 block title
+  base(href="../")
   title #{_talk.title} - #{appInfo.site.name.tw} #{appInfo.site.name.en}
 
 block content
@@ -36,7 +37,7 @@ block content
             +talk-nav__link('prev', programs[_talkOrder - 1])
 
         .container.posr
-          .video-cover.full-fill(style="background-image: url('/images/slider/program#{_talk.program_number_full}_bg.jpg');")
+          .video-cover.full-fill(style="background-image: url('images/slider/program#{_talk.program_number_full}_bg.jpg');")
             .video-cover__icon-play 精華回顧
           .video-box.mb4.md-mb2.mxa
             .video-placeholder
