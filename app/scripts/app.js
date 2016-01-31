@@ -185,3 +185,26 @@ $(function () {
     $.ajaxSetup({ cache: false });
   }
 });
+
+$(window).on('load', function () {
+  var now = +new Date();
+  var getConfirm = function () {
+    return confirm('這是個人練習 jade 的作品，\n圖文資料等皆取自政問原始網站 talkto.tw，\n理解的話請按確定，並繼續瀏覽~');
+  };
+  var confirmTime = localStorage && localStorage.getItem('confirmTime');
+
+  if (!confirmTime) {
+    if (getConfirm()) {
+      localStorage.setItem('confirmTime', now);
+    } else {
+      // redirect to github repo
+      location.href = 'https://github.com/Rplus/demo-talkto';
+    }
+  } else {
+    // outdated: over 30 mins, remove confirmTime
+    var deltaTime = now - confirmTime * 1;
+    if (deltaTime > 30 * 60 * 1000) {
+      localStorage.removeItem('confirmTime');
+    }
+  }
+});
