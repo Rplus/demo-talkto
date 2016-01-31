@@ -30,6 +30,12 @@ $_arrow-size: .75rem;
     border: $_arrow-size solid transparent;
     display: inline-block;
     z-index: 1;
+    opacity: .5;
+    transition: opacity .3s;
+  }
+
+  &:hover::after {
+    opacity: .75;
   }
 }
 
@@ -38,7 +44,7 @@ $_arrow-size: .75rem;
 
   &::after {
     right: $_arrow-size;
-    border-left-color: $c-white-o5;
+    border-left-color: inherit;
   }
 }
 
@@ -47,7 +53,7 @@ $_arrow-size: .75rem;
 
   &::after {
     left: $_arrow-size;
-    border-right-color: $c-white-o5;
+    border-right-color: inherit;
   }
 }
 
