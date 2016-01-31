@@ -93,7 +93,10 @@ gulp.task('clean:js', () => {
 gulp.task('js', () => {
   gulp.src(appPath.srcDir + 'scripts/**/*.js')
     .pipe(plumber())
+    .pipe(sourcemaps.init())
+    .pipe(babel())
     .pipe(uglify())
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(appPath.distDir + 'scripts/'));
 });
 
