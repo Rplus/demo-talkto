@@ -1,11 +1,6 @@
 .slider {
   max-width: 95rem;
 
-  .container {
-    position: relative;
-    height: 100%;
-  }
-
   * {
     outline: none;
   }
@@ -18,17 +13,9 @@
   right: 0;
   top: px2rem(18);
   z-index: 5;
-  font-size: 1.5rem;
 
-  @include bp-md--up {
-    top: 1em;
-  }
-
-  @include bp-lg--up {
-    font-size: 3rem;
-    padding-right: 1em;
-    padding-left: 1em;
-  }
+  @include bp-md--up {top: 1.5rem; }
+  @include bp-lg--up {top: 3rem; }
 
   .logo {
     max-width: 4rem;
@@ -37,6 +24,10 @@
 
     @include bp-md--up {
       max-width: none;
+    }
+
+    @include bp-xl--up {
+      width: 120px;
     }
   }
 }
@@ -111,21 +102,15 @@
   }
 }
 
-.program-info--wrapper {
-  position: relative;
-  height: 100%;
-}
-
 .program-info {
   position: absolute;
-  bottom: px2rem(18);
-  right: px2rem(12);
+  bottom: 2.5%;
+  right: 0;
   line-height: px2rem(36);
   font-weight: 900;
 
   @include bp-md--up {
-    bottom: px2rem(36);
-    right: px2rem(24);
+    bottom: 5%;
     line-height: px2rem(36);
   }
 }
@@ -145,10 +130,20 @@
     font-size: px2rem(48);
     line-height: px2rem(60);
   }
+
+  @include bp-xl--up {
+    font-size: px2rem(56);
+    line-height: px2rem(66);
+  }
 }
 
 .program__time {
   display: block;
+  font-family: $number-font;
+
+  @include bp-md--up {
+    font-size: px2rem(18);
+  }
 }
 
 .program__link {
@@ -168,6 +163,7 @@
 
 .program__number {
   font: 900 px2rem(72) / 1 $number-font;
+  letter-spacing: -3px;
 
   &::first-letter {
     color: $c-white-o5;
@@ -183,6 +179,10 @@
 
   @include bp-md--up {
     font-size: px2rem(96);
+  }
+
+  @include bp-xl--up {
+    font-size: px2rem(128);
   }
 }
 
