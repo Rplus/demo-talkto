@@ -3,61 +3,62 @@
 'use strict';
 
 $(function () {
-  var slider = $('.slider');
+  var slider = {
+    elm: $('.slider')
+  };
 
-  if (slider.length) {
-    var sliderMain = slider.find('.slider-body');
-    var sliderContent = sliderMain.find('.slider-content');
-    var sliderLen = sliderContent.length;
-    var sliderBgiUpdated = [];
+  if (slider.elm.length) {
+    slider.main = slider.elm.find('.slider-body');
+    slider.content = slider.main.find('.slider-content');
+    slider.len = slider.content.length;
+    slider.bgiUpdated = [];
 
-    var updateBgi = function (_order, getSibling) {
-      if (sliderBgiUpdated.indexOf(_order) !== -1) { return; }
+    slider.updateBgi = function (_order, getSibling) {
+      if (slider.bgiUpdated.indexOf(_order) === -1) {
+        var _target = slider.content.eq(_order);
+        var bgi = _target.css('background-image');
 
-      var _target = sliderContent.eq(_order);
-      var bgi = _target.css('background-image');
-
-      bgi = bgi.replace('thumb', 'bg') + ', ' + bgi;
-      _target.css('background-image', bgi);
-
-      sliderBgiUpdated.push(_order);
+        bgi = bgi.replace('thumb', 'bg') + ', ' + bgi;
+        _target.css('background-image', bgi);
+        slider.bgiUpdated.push(_order);
+      }
 
       if (getSibling) {
-        updateBgi((_order - 1) % sliderLen);
-        updateBgi((_order + 1) % sliderLen);
+        slider.updateBgi((_order + slider.len - 1) % slider.len);
+        slider.updateBgi((_order + 1) % slider.len);
       }
     };
 
     $.ajaxSetup({ cache: true });
     $.getScript('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js', function (data, textStatus) {
-      var sliderThumb = slider.find('.slider-thumbs');
-      var sliderBtnTmpl = $('<div />').html($('#slider-btn-tmpl').html()).find('button');
-      var sliderInitOrder = sliderLen - 1;
+      slider.thumb = slider.elm.find('.slider-thumbs');
+      slider.btnTmpl = $('<div />').html($('#slider-btn-tmpl').html()).find('button');
+      slider.initOrder = slider.len - 1;
 
-      updateBgi(sliderInitOrder, true);
+      slider.updateBgi(slider.initOrder, true);
 
-      sliderMain.slick({
+      slider.main.slick({
         arrows: false,
-        asNavFor: sliderThumb,
+        asNavFor: slider.thumb,
         fade: true,
-        initialSlide: sliderInitOrder,
+        initialSlide: slider.initOrder,
         slidesToShow: 1
       });
 
-      sliderMain.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-        updateBgi(nextSlide, true);
+      slider.main.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+        slider.updateBgi(nextSlide, true);
       });
 
-      sliderThumb.slick({
-        asNavFor: sliderMain,
+      slider.thumb.slick({
+        asNavFor: slider.main,
         centerMode: true,
         centerPadding: 0,
         focusOnSelect: true,
-        initialSlide: sliderInitOrder,
+        initialSlide: slider.initOrder,
         slidesToShow: 5,
         useTransform: true,
-        prevArrow: sliderBtnTmpl[0].outerHTML,
-        nextArrow: sliderBtnTmpl[1].outerHTML,
+        prevArrow: slider.btnTmpl[0].outerHTML,
+        nextArrow: slider.btnTmpl[1].outerHTML,
         responsive: [
           {
             breakpoint: 769,
