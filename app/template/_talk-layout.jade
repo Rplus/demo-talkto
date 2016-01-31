@@ -63,10 +63,12 @@ block content
 
         aside.side-content.c-bio
           .block
+            input#bio-collapse.sr-only(type="checkbox")
             h4.block__title
               span.title-en bio
               span.title-tw 來賓介紹
             .block__content!= _talk.bio
+              label(for="bio-collapse", title="▼ 展開").bio-readmore.text-center
 
       .clear.lg-mb6
         if _talk.points

@@ -1,0 +1,41 @@
+@include bp-lg--up {
+  $bio-height: 250px;
+  .c-bio {
+    .block__content {
+      position: relative;
+      overflow: hidden;
+      max-height: $bio-height;
+      transition: max-height 1s;
+    }
+  }
+
+  .bio-readmore {
+    position: absolute;
+    top: $bio-height;
+    width: 100%;
+    height: 75px;
+    transform: translateY(-100%);
+    background-image: linear-gradient(transparent, $c-black-l1 50%);
+    color: $c-pink;
+    font-weight: 900;
+    cursor: pointer;
+
+    &::after {
+      content: attr(title);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  #bio-collapse:checked {
+    ~ .block__content {
+      max-height: $bio-height * 3;
+
+      .bio-readmore {
+        display: none;
+      }
+    }
+  }
+}
