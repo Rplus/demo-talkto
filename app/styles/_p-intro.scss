@@ -1,7 +1,11 @@
 // .container.introduce
 .introduce {
   width: 80%;
-  max-width: px2rem(768);
+  box-sizing: content-box;
+
+  &.container {
+    max-width: px2rem(720);
+  }
 
   @include bp-md--up {
     padding-top: 3rem;
