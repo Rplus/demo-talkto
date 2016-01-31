@@ -3,7 +3,7 @@
 
 section.slider.mxa
   h1.slider-head.vh
-    .container.vv
+    .container.vv.posr.h100p
       img.logo.logo--index.float-right(src="images/logo/logo.svg", alt="政問 logo", width="102", height="128")
       .share-btns.float-left
         +sns-facebook('http://talkto.tw/')
@@ -18,7 +18,7 @@ section.slider.mxa
         a.slider-content(
           href="talk/#{program.program_number_full}.html",
           style="background-image: #{bgi}; #{bgp}")
-          .container: .program-info--wrapper
+          .container.posr.h100p: .posr.h100p
             .program-info
               .program__guest.text-pink=program.guest
               .program__title!=program.title.replace(/，/g, '<br>').replace(/&#8203;/g, '<br>')
