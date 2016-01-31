@@ -147,17 +147,46 @@
 }
 
 .program__link {
+  position: relative;
   display: inline-block;
   margin-top: px2rem(6);
   font-size: px2rem(14);
   font-weight: 100;
-  color: inherit;
   background-color: $c-pink;
+  color: transparent;
 
   @include bp-md--up {
     margin-top: px2rem(12);
     font-size: px2rem(18);
     line-height: px2rem(42);
+  }
+
+  &::before,
+  &::after {
+    content: attr(title);
+    @include fill-full();
+    text-align: center;
+  }
+
+  &::before {
+    color: $main-color;
+    background-color: $c-pink;
+  }
+
+  &::after {
+    color: $main-bgc;
+    background-color: $main-color;
+    animation: clip-move 5s linear infinite paused;
+  }
+
+  &.is-live::after,
+  &:hover::after {
+    animation-play-state: running;
+  }
+
+  @keyframes clip-move {
+    from { clip: rect(0, 0, 3em, -12em);}
+    to   { clip: rect(0, 24em, 3rem, 12em);}
   }
 }
 
