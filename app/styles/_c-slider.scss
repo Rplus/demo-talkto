@@ -111,6 +111,11 @@
   }
 }
 
+.program-info--wrapper {
+  position: relative;
+  height: 100%;
+}
+
 .program-info {
   position: absolute;
   bottom: px2rem(18);

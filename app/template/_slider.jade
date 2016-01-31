@@ -18,7 +18,7 @@ section.slider.mxa
         a.slider-content(
           href="talk/#{program.program_number_full}.html",
           style="background-image: #{bgi}; #{bgp}")
-          .container
+          .container: .program-info--wrapper
             .program-info
               .program__guest.text-pink=program.guest
               .program__title!=program.title.replace(/，/g, '<br>').replace(/&#8203;/g, '<br>')
