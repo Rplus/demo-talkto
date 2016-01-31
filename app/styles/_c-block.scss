@@ -39,6 +39,10 @@
     @include bp-lg--up {
       font-size: 1.5rem;
     }
+
+    p {
+      margin-bottom: 1em;
+    }
   }
 
   p {
