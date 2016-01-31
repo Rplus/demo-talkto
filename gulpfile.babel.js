@@ -78,11 +78,18 @@ gulp.task('css', () => {
         silent: !argv.consoleTime
       }),
       require('lost')(),
-      require('autoprefixer')(),
+      require('cssnano')({
+        safe: true,
+        autoprefixer: true,
+        discardUnused: false,
+        discardDuplicates: false,
+        minifySelectors: false,
+        mergeIdents: false,
+        zindex: false
+      }),
       require('css-mqpacker')({
         sort: true
-      }),
-      require('csswring')()
+      })
     ]))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(appPath.distDir));
