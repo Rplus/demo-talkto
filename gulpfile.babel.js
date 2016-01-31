@@ -17,6 +17,7 @@ import del from 'del';
 import yaml from 'js-yaml';
 import gulpSharp from 'gulp-sharp';
 import gulpFilter from 'gulp-filter';
+import runSequence from 'gulp-run-sequence';
 import fs from 'fs';
 import ghPages from 'gulp-gh-pages';
 
@@ -28,6 +29,8 @@ let appPath = {
   srcDir: 'app/',
   distDir: '_dist/'
 };
+
+let disablePostcssDevtools = !argv.consoleTime;
 
 let svgOptions = [
   { removeTitle: true },
@@ -68,6 +71,7 @@ gulp.task('clean', () => {
 });
 
 gulp.task('css', () => {
+  console.log(disablePostcssDevtools, 11);
   gulp.src(appPath.srcDir + '**/*.scss', {base: appPath.srcDir})
     .pipe(plumber())
     .pipe(sourcemaps.init())
@@ -75,7 +79,7 @@ gulp.task('css', () => {
     .pipe(postcss([
       require('postcss-devtools')({
         // run `gulp css --consoleTime` to show postCSS plugins time cost
-        silent: !argv.consoleTime
+        silent: disablePostcssDevtools
       }),
       require('lost')(),
       require('cssnano')({
@@ -160,7 +164,9 @@ gulp.task('team-icon', () => {
 
 gulp.task('images', ['image', 'svg-icon', 'team-icon']);
 
-gulp.task('build', ['hmtl', 'css', 'js', 'images'], () => {
+gulp.task('build', () => {
+  disablePostcssDevtools = false;
+  runSequence('hmtl', 'css', 'js', 'images');
 });
 
 gulp.task('deploy', () => {
