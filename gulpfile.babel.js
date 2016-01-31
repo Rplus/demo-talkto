@@ -73,14 +73,11 @@ gulp.task('css', () => {
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(postcss([
-      require('postcss-assets')({
-        loadPaths: ['images']
       require('postcss-devtools')({
         // run `gulp css --consoleTime` to show postCSS plugins time cost
         silent: !argv.consoleTime
       }),
       require('lost')(),
-      // require('cssnext')(),
       require('autoprefixer')(),
       require('css-mqpacker')({
         sort: true
