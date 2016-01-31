@@ -42,6 +42,9 @@
 
   @include bp-lg--up {
     transform: translate(-50%, -80%);
+  }
+
+  @include bp-md--up {
     font-size: 1rem;
   }
 
