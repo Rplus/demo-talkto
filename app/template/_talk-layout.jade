@@ -10,7 +10,7 @@ block content
     var _isFirstTalk = (_talkOrder === 0);
     var _isLastTalk = !programs[_talkOrder + 1] || (programs[_talkOrder + 1].guest === '');
     var polisCircleSize = 45;
-    var polisCircleLen = polisCircleSize * 2 * Math.PI;
+    var polisCircleLen = (polisCircleSize * 2 * Math.PI).toFixed(2) * 1;
 
     _talk.points = allPoints['point' + _talk.program_number_full + '.json'];
     _talk.polis = allPolis['polis' + _talk.program_number_full + '.json'];
