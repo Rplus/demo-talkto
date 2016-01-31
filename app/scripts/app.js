@@ -8,21 +8,33 @@ $(function () {
   if (slider.length) {
     var sliderMain = slider.find('.slider-body');
     var sliderContent = sliderMain.find('.slider-content');
+    var sliderLen = sliderContent.length;
+    var sliderBgiUpdated = [];
 
-    var updateBgi = function (_elm) {
-      var bgi = _elm.css('background-image');
+    var updateBgi = function (_order, getSibling) {
+      if (sliderBgiUpdated.indexOf(_order) !== -1) { return; }
+
+      var _target = sliderContent.eq(_order);
+      var bgi = _target.css('background-image');
+
       bgi = bgi.replace('thumb', 'bg') + ', ' + bgi;
-      _elm.css('background-image', bgi);
+      _target.css('background-image', bgi);
+
+      sliderBgiUpdated.push(_order);
+
+      if (getSibling) {
+        updateBgi((_order - 1) % sliderLen);
+        updateBgi((_order + 1) % sliderLen);
+      }
     };
 
     $.ajaxSetup({ cache: true });
     $.getScript('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js', function (data, textStatus) {
       var sliderThumb = slider.find('.slider-thumbs');
-      var sliderLen = sliderContent.length;
       var sliderBtnTmpl = $('<div />').html($('#slider-btn-tmpl').html()).find('button');
       var sliderInitOrder = sliderLen - 1;
 
-      updateBgi(sliderContent.eq(sliderInitOrder));
+      updateBgi(sliderInitOrder, true);
 
       sliderMain.slick({
         arrows: false,
@@ -33,7 +45,7 @@ $(function () {
       });
 
       sliderMain.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-        updateBgi(sliderContent.eq(nextSlide));
+        updateBgi(nextSlide, true);
       });
 
       sliderThumb.slick({
