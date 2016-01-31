@@ -16,8 +16,10 @@ mixin sns-twitter(url)
 
 mixin talk-nav__link($type, $programData)
   a.talk-nav__link(
+    title="- #{$programData.program_number_full} -\n#{$programData.program_topic}, #{$programData.guest}",
     class="talk-nav__link--#{$type}",
     href="talk/#{$programData.program_number_full}.html")
-    .talk-nav__info(style="background-image: url('images/slider/program#{$programData.program_number_full}_icon.jpg')")
-      span.ib.talk-nav__info__num.pr1= $programData.program_number_full
-      span.ib= $programData.program_topic
+    .talk-nav__info(
+      data-order=$programData.program_number_full,
+      data-topic=$programData.program_topic,
+      style="background-image: url('images/slider/program#{$programData.program_number_full}_icon.jpg')")

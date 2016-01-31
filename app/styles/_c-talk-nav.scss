@@ -93,13 +93,21 @@ $_arrow-size: .75rem;
     opacity: 1;
     transition: transform .5s, opacity .5s;
   }
-}
 
-.talk-nav__info__num {
-  font-size: px2rem(28);
-  color: $c-pink;
+  &::after {
+    content: attr(data-topic);
+  }
+
+  &::before {
+    content: attr(data-order);
+    padding-right: .25em;
+    font-size: px2rem(28);
+    color: $c-pink;
+  }
 
   &::first-letter {
     color: $c-white-o5;
+    font-size: px2rem(28);
   }
+
 }
