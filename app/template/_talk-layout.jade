@@ -58,7 +58,7 @@ block content
             h4.block__title
               span.title-en intro
               span.title-tw 簡介
-            .block__content(class="#{_isLastTalk ? 'block__content--large' : ''}")
+            .block__content(class="#{!_talk.points && !_talk.polis ? 'block__content--large' : ''}")
               p= _talk.intro
 
         aside.side-content.c-bio
