@@ -20,6 +20,8 @@ import gulpFilter from 'gulp-filter';
 import fs from 'fs';
 import ghPages from 'gulp-gh-pages';
 
+let argv = require('yargs').argv;
+
 let reload = browserSync.reload;
 
 let appPath = {
@@ -71,9 +73,11 @@ gulp.task('css', () => {
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(postcss([
-      require('postcss-devtools')(),
       require('postcss-assets')({
         loadPaths: ['images']
+      require('postcss-devtools')({
+        // run `gulp css --consoleTime` to show postCSS plugins time cost
+        silent: !argv.consoleTime
       }),
       require('lost')(),
       // require('cssnext')(),
