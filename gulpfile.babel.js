@@ -83,6 +83,7 @@ gulp.task('css', () => {
       }),
       require('csswring')()
     ]))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(appPath.distDir));
 });
 
