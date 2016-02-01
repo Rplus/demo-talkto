@@ -13,6 +13,9 @@ $(function () {
     slider.len = slider.content.length;
     slider.bgiUpdated = [];
 
+    // for some broken browser doesn't support `vh` well
+    slider.main.css('height', slider.main.css('height'));
+
     slider.updateBgi = (_order, getSibling) => {
       if (slider.bgiUpdated.indexOf(_order) === -1) {
         let _target = slider.content.eq(_order);
