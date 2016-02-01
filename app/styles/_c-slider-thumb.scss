@@ -1,3 +1,5 @@
+$slider-btn-size-l: px2rem(70px);
+$slider-btn-size-s: px2rem(40px);
 .slider-foot {
   position: relative;
   max-width: 70rem;
@@ -15,7 +17,12 @@
   }
 
   .slick-list {
-    margin: px2rem(6) px2rem(70);
+    margin: px2rem(6) $slider-btn-size-s;
+
+    @include bp-md--up {
+      margin-left: $slider-btn-size-l;
+      margin-right: $slider-btn-size-l;
+    }
 
     &::before,
     &::after {
@@ -81,12 +88,16 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 70px;
+  width: $slider-btn-size-s;
   padding: 0;
   border: none;
   background: transparent;
   opacity: .7;
   transition: opacity .3s;
+
+  @include bp-md--up {
+    width: $slider-btn-size-l;
+  }
 
   &:hover {
     opacity: 1;
