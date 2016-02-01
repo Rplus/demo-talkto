@@ -71,7 +71,6 @@ gulp.task('clean', () => {
 });
 
 gulp.task('css', () => {
-  console.log(disablePostcssDevtools, 11);
   gulp.src(appPath.srcDir + '**/*.scss', {base: appPath.srcDir})
     .pipe(plumber())
     .pipe(sourcemaps.init())
@@ -82,9 +81,10 @@ gulp.task('css', () => {
         silent: disablePostcssDevtools
       }),
       require('lost')(),
+      require('autoprefixer')(),
       require('cssnano')({
         safe: true,
-        autoprefixer: true,
+        autoprefixer: false,
         discardUnused: false,
         discardDuplicates: false,
         minifySelectors: false,
